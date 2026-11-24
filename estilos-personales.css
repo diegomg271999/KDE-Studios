@@ -1,0 +1,340 @@
+/* =========================================================
+   KDE Studios · Página personal
+   Estilo: fondo noche, violeta + turquesa, hexágono y anillos
+   ========================================================= */
+
+:root {
+  --noche: #0d0b1f;
+  --noche-2: #151034;
+  --tarjeta: #1a1440;
+  --borde: rgba(124, 92, 255, 0.35);
+  --violeta: #7c5cff;
+  --turquesa: #22e0d0;
+  --rosa: #5a2340;
+  --texto: #f1edff;
+  --texto-suave: #b7aee0;
+  --degradado: linear-gradient(90deg, #6c63ff, #22d3d6);
+  --fuente-titulo: "Syne", "Arial Black", sans-serif;
+  --fuente-texto: "Inter", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--noche);
+  color: var(--texto);
+  font-family: var(--fuente-texto);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Barra de navegación ---------- */
+.barra {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 1.2rem;
+}
+
+.marca { display: flex; align-items: center; gap: 0.6rem; }
+
+.marca-hex {
+  width: 24px;
+  height: 26px;
+  background: linear-gradient(160deg, #6c63ff, #3bb8e8);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.marca-texto {
+  font-family: var(--fuente-titulo);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  padding: 0.3rem;
+  background: rgba(26, 20, 64, 0.75);
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.menu a {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu a:hover,
+.menu a:focus-visible { background: var(--violeta); color: #fff; outline: none; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 62vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(76, 48, 170, 0.75), transparent 45%),
+    radial-gradient(circle at 90% 90%, rgba(120, 40, 70, 0.7), transparent 45%),
+    var(--noche);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-weight: 800;
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  line-height: 1;
+  background: linear-gradient(90deg, #ffffff, #22e0d0 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-sub { margin: 1.2rem 0 0; font-size: 1.1rem; color: var(--texto-suave); }
+
+/* Anillos + hexágono, hechos solo con CSS */
+.hero-orbita {
+  position: absolute;
+  right: -140px;
+  top: 50%;
+  width: 460px;
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle at center,
+    transparent 0 30px,
+    rgba(34, 224, 208, 0.5) 30px 31px
+  );
+}
+
+.hero-orbita::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 125px;
+  height: 140px;
+  background: linear-gradient(160deg, #6c63ff, #3bb8e8);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+/* ---------- Contenedores y secciones ---------- */
+.contenedor {
+  width: min(800px, 90%);
+  margin-inline: auto;
+}
+
+.contenedor-ancho { width: min(1150px, 92%); }
+
+.seccion { padding: 4.5rem 0; }
+
+.seccion h2 {
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.4rem;
+  font-family: var(--fuente-titulo);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--violeta), transparent) 1;
+}
+
+.retrato { margin: 0 0 1.2rem; max-width: 280px; }
+
+.retrato img {
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--borde);
+  background: var(--tarjeta);
+}
+
+.retrato figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--texto-suave);
+}
+
+/* ---------- Tarjetas ---------- */
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.tarjeta {
+  padding: 1.2rem;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+}
+
+.tarjeta h3 { margin: 0 0 0.4rem; color: var(--turquesa); font-family: var(--fuente-titulo); }
+.tarjeta p { margin: 0; color: var(--texto-suave); }
+
+/* ---------- Botones ---------- */
+.btn {
+  padding: 0.75rem 1.4rem;
+  border: 0;
+  border-radius: 999px;
+  font: 600 0.95rem var(--fuente-texto);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.btn:hover { transform: translateY(-2px); }
+.btn:focus-visible,
+.btn-paleta:focus-visible { outline: 2px solid var(--turquesa); outline-offset: 3px; }
+
+.btn-principal {
+  background: var(--degradado);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.35);
+}
+
+.btn-secundario {
+  background: transparent;
+  color: var(--texto);
+  border: 1px solid var(--turquesa);
+}
+
+.btn-secundario:hover { background: rgba(34, 224, 208, 0.12); }
+
+/* ---------- Laboratorio generativo ---------- */
+.lab-lema { margin: 0 0 2rem; color: var(--texto-suave); }
+
+.lab {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.lab-panel {
+  padding: 1.5rem;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+}
+
+.lab-panel h3 {
+  margin: 0 0 0.6rem;
+  font-family: var(--fuente-titulo);
+  font-size: 1.6rem;
+  color: var(--turquesa);
+}
+
+.lab-concepto { margin: 0 0 1.4rem; font-size: 0.92rem; color: var(--texto-suave); }
+
+.lab-etiqueta { margin: 0 0 0.5rem; font-weight: 600; font-size: 0.9rem; }
+
+.lab-paletas { display: grid; gap: 0.5rem; margin-bottom: 1.4rem; }
+
+.btn-paleta {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 0.8rem;
+  background: var(--noche-2);
+  color: var(--texto);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  font: 500 0.9rem var(--fuente-texto);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btn-paleta:hover { border-color: var(--turquesa); }
+
+.btn-paleta.activa {
+  border-color: var(--turquesa);
+  background: rgba(34, 224, 208, 0.1);
+}
+
+.muestra {
+  width: 34px;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--a), var(--b));
+}
+
+.lab-acciones { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.2rem; }
+
+.lab-ayuda { margin: 0; font-size: 0.82rem; color: var(--texto-suave); }
+
+.lab-lienzo {
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(108, 99, 255, 0.25);
+  background: #000;
+}
+
+.lab-lienzo canvas { display: block; width: 100%; height: auto; }
+
+/* ---------- Formulario ---------- */
+.formulario { display: grid; gap: 0.5rem; max-width: 520px; }
+
+.formulario label { font-weight: 600; font-size: 0.9rem; }
+
+.formulario input,
+.formulario textarea {
+  padding: 0.7rem 0.9rem;
+  background: var(--noche-2);
+  color: var(--texto);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  font: inherit;
+}
+
+.formulario input:focus,
+.formulario textarea:focus { outline: 2px solid var(--turquesa); }
+
+.formulario .btn { justify-self: start; margin-top: 0.8rem; }
+
+/* ---------- Pie ---------- */
+.pie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: var(--noche-2);
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.pie a { color: var(--turquesa); }
+
+/* ---------- Adaptación a pantallas pequeñas ---------- */
+@media (max-width: 900px) {
+  .lab { grid-template-columns: 1fr; }
+  .barra { position: static; flex-direction: column; align-items: flex-start; }
+  .hero { min-height: 50vh; }
+  .hero-orbita { opacity: 0.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}

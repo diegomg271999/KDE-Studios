@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Persona 1 · KDE Studios</title>
+
+  <!-- Tipografías: Syne (títulos) + Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="estilos-personales.css">
+</head>
+<body>
+
+  <!-- ============ NAVEGACIÓN ============ -->
+  <header class="barra">
+    <a class="marca" href="#inicio">
+      <span class="marca-hex" aria-hidden="true"></span>
+      <span class="marca-texto">KDE Studios</span>
+    </a>
+    <nav class="menu" aria-label="Navegación principal">
+      <a href="#quien-soy">Quién soy</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#laboratorio">Laboratorio</a>
+      <a href="#multimedia">Multimedia</a>
+      <a href="#contacto">Contacto</a>
+      <a href="../../index.html#integrantes">Volver al equipo</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <div class="hero-orbita" aria-hidden="true"></div>
+      <div class="contenedor">
+        <h1>Persona 1</h1>
+        <p class="hero-sub">Ilustración digital</p>
+      </div>
+    </section>
+
+    <!-- ============ QUIÉN SOY (sección anterior) ============ -->
+    <section class="seccion" id="quien-soy">
+      <div class="contenedor">
+        <h2>Quién soy</h2>
+        <figure class="retrato">
+          <img src="imagenes/persona1.png" alt="Anillos de luz y un hexágono brillante que representan a Luna Trazo">
+          <figcaption>Persona 1</figcaption>
+        </figure>
+        <p>Dibujo mundos de colores intensos y personajes con mucha personalidad.</p>
+        <p>Me interesan los personajes, la luz y el color.</p>
+      </div>
+    </section>
+
+    <!-- ============ TRABAJOS (sección anterior) ============ -->
+    <section class="seccion" id="trabajos">
+      <div class="contenedor">
+        <h2>Trabajos</h2>
+        <!-- Reemplaza con tus proyectos de la tarea anterior -->
+        <div class="rejilla">
+          <article class="tarjeta">
+            <h3>Proyecto 1</h3>
+            <p>Descripción breve de tu proyecto.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>Proyecto 2</h3>
+            <p>Descripción breve de tu proyecto.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>Proyecto 3</h3>
+            <p>Descripción breve de tu proyecto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         NUEVA SECCIÓN · MI LABORATORIO GENERATIVO
+         ===================================================== -->
+    <section class="seccion" id="laboratorio">
+      <div class="contenedor contenedor-ancho">
+        <h2>Mi laboratorio generativo</h2>
+        <p class="lab-lema">Una experiencia gráfica desarrollada con JavaScript y Canvas.</p>
+
+        <div class="lab">
+          <!-- Lado izquierdo: descripción y controles -->
+          <aside class="lab-panel">
+            <h3>Órbitas de luz</h3>
+            <p class="lab-concepto">
+              Un universo geométrico donde un hexágono, símbolo de KDE Studios,
+              es el sol de un sistema de anillos. A su alrededor flotan círculos,
+              triángulos y cuadrados unidos por líneas de constelación. Cada
+              composición es distinta porque nace de reglas y azar.
+            </p>
+
+            <p class="lab-etiqueta">Paleta de color</p>
+            <div class="lab-paletas" role="group" aria-label="Paletas de color">
+              <button class="btn-paleta activa" data-paleta="0" type="button">
+                <span class="muestra" style="--a:#6c63ff;--b:#22e0d0"></span>Aurora
+              </button>
+              <button class="btn-paleta" data-paleta="1" type="button">
+                <span class="muestra" style="--a:#ff8a3d;--b:#ff4d6d"></span>Atardecer
+              </button>
+              <button class="btn-paleta" data-paleta="2" type="button">
+                <span class="muestra" style="--a:#3cff9e;--b:#4dabf7"></span>Bosque neón
+              </button>
+            </div>
+
+            <div class="lab-acciones">
+              <button id="btnGenerar" class="btn btn-principal" type="button">Generar composición</button>
+              <button id="btnGuardar" class="btn btn-secundario" type="button">Guardar PNG</button>
+            </div>
+
+            <p class="lab-ayuda">
+              Cómo usarlo: elige una paleta, pulsa <strong>Generar composición</strong>
+              las veces que quieras y, cuando una te guste, descárgala con
+              <strong>Guardar PNG</strong>.
+            </p>
+          </aside>
+
+          <!-- Lado derecho: el Canvas -->
+          <div class="lab-lienzo">
+            <canvas id="lienzo" width="1000" height="640"
+                    aria-label="Composición generativa Órbitas de luz"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MULTIMEDIA (sección anterior) ============ -->
+    <section class="seccion" id="multimedia">
+      <div class="contenedor">
+        <h2>Multimedia</h2>
+        <!-- Agrega aquí tu audio y video de la tarea anterior -->
+        <!-- <audio controls src="audio/mi-audio.mp3"></audio> -->
+        <!-- <video controls src="videos/mi-video.mp4"></video> -->
+        <p>Aquí van tus recursos de audio y video.</p>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO (sección anterior) ============ -->
+    <section class="seccion" id="contacto">
+      <div class="contenedor">
+        <h2>Contacto</h2>
+        <form class="formulario" action="#" method="post">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" required>
+
+          <label for="correo">Correo</label>
+          <input id="correo" name="correo" type="email" required>
+
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+          <button class="btn btn-principal" type="submit">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p>KDE Studios · Diseño Multimedia</p>
+    <a href="../../index.html">Volver a la landing page del colectivo</a>
+  </footer>
+
+  <!-- El script va al final del body, después del canvas y los botones -->
+  <script src="canvas.js"></script>
+</body>
+</html>
+
+Mejije
